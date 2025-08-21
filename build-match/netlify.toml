@@ -1,11 +1,6 @@
 [build]
   command = "npm run build"
-  publish = "build-match/dist"
+  publish = "dist"
 
 [build.environment]
-  NODE_VERSION = "24.6.0"
-
-[functions]
-  node_bundler = "esbuild"
-
-[functions."*"]
+  NODE_VERSION = "18.20.4"
