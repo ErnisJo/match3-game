@@ -1,0 +1,9 @@
+[build]
+  command = "npm run build"
+  publish = "dist" # для Vite
+  # publish = "build" # если у тебя Create React App (CRA)
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
