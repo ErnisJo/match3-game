@@ -1,0 +1,18 @@
+diff --git a/src/App.tsx b/src/App.tsx
+index 1111111..2222222 100644
+--- a/src/App.tsx
++++ b/src/App.tsx
+@@ -1,6 +1,10 @@
+ import React from "react";
+ 
+ function App() {
+-  return <div className="App">Игра Match-3</div>;
++  return (
++    <div className="App">
++      <h1>Hello from Bot 🤖</h1>
++      <div>Игра Match-3</div>
++    </div>
++  );
+ }
+ 
+ export default App;

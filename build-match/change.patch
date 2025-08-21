@@ -1,0 +1,16 @@
+diff --git a/src/App.tsx b/src/App.tsx
+index e69de29..c2f5b23 100644
+--- a/src/App.tsx
++++ b/src/App.tsx
+@@ -0,0 +1,11 @@
++import React from "react";
++
++function App() {
++  return (
++    <div style={{ textAlign: "center", marginTop: "50px" }}>
++      <h1>Привет от MyHelper-droid 🚀</h1>
++    </div>
++  );
++}
++
++export default App;
