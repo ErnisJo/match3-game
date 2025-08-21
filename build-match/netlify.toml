@@ -1,6 +1,7 @@
 [build]
+  dase = "build-match"
   command = "npm run build"
-  publish = "dist"
+  publish = "build-match/dist"
 
 [build.environment]
   NODE_VERSION = "18"
