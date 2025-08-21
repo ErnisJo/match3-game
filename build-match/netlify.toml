@@ -1,10 +1,11 @@
 [build]
-  dase = "build-match"
   command = "npm run build"
   publish = "build-match/dist"
 
 [build.environment]
   NODE_VERSION = "24.6.0"
-  
+
 [functions]
-  node-bundler = "esbuild"
+  node_bundler = "esbuild"
+
+[functions."*"]
