@@ -1,0 +1,117 @@
+/* Базовый каркас */
+:root {
+  --bg: #0f172a;         /* slate-900 */
+  --panel: #111827;      /* gray-900 */
+  --panel-2: #1f2937;    /* gray-800 */
+  --text: #e5e7eb;       /* gray-200 */
+  --accent: #60a5fa;     /* blue-400 */
+  --grid-gap: 8px;
+  --cell-size: 64px;     /* можно менять масштаб игры */
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; }
+body { background: var(--bg); color: var(--text); font-family: Inter, system-ui, Arial, sans-serif; }
+
+.app-shell { max-width: 900px; margin: 0 auto; padding: 16px; }
+.app-header, .app-footer {
+  display: flex; align-items: center; gap: 12px; justify-content: space-between;
+  background: var(--panel); border: 1px solid #273042; border-radius: 14px; padding: 12px 16px; margin-bottom: 12px;
+}
+.app-footer { font-size: 12px; opacity: 0.85; }
+.score-box { display: flex; align-items: center; gap: 8px; background: var(--panel-2); padding: 8px 10px; border-radius: 10px; }
+.btn {
+  background: var(--accent); color: #0b1020; border: none; padding: 10px 14px; border-radius: 10px;
+  font-weight: 700; cursor: pointer; transition: transform .1s ease, filter .2s ease;
+}
+.btn:hover { filter: brightness(1.1); }
+.btn:active { transform: translateY(1px); }
+
+/* Игровое поле */
+.board-wrapper {
+  display: flex; justify-content: center; align-items: center;
+  background: linear-gradient(180deg, #0b1020, #10172a);
+  border: 1px solid #273042; border-radius: 16px; padding: 16px; min-height: 480px;
+}
+
+.board {
+  display: grid;
+  gap: var(--grid-gap);
+  width: calc(var(--cell-size)*6 + var(--grid-gap)*5);
+  height: calc(var(--cell-size)*6 + var(--grid-gap)*5);
+  padding: 8px;
+  background: #0c1326;
+  border: 1px solid #22314d;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35) inset;
+}
+
+/* Базовая плитка */
+.tile {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 28px;
+  user-select: none;
+  transition: transform .12s ease, opacity .12s ease, filter .12s ease;
+  border: 1px solid rgba(255,255,255,.06);
+}
+
+.tile.empty {
+  opacity: 0;
+}
+
+/* Состояния */
+.tile.selected {
+  outline: 3px solid #93c5fd; /* blue-300 */
+  outline-offset: -3px;
+  box-shadow: 0 0 0 3px rgba(147,197,253,.15);
+}
+
+.tile.falling {
+  animation: tile-fall var(--fall-ms) ease-in;
+}
+
+.tile.popping {
+  animation: tile-pop var(--pop-ms) ease-in forwards;
+}
+
+/* Анимации */
+@keyframes tile-fall {
+  from { transform: translateY(-18px); }
+  to   { transform: translateY(0); }
+}
+
+@keyframes tile-pop {
+  0%   { transform: scale(1); opacity: 1; }
+  40%  { transform: scale(1.12); opacity: .9; }
+  100% { transform: scale(.6); opacity: 0; }
+}
+
+/* Виды материалов (цвета/градиенты) */
+.tile.brick {
+  background: linear-gradient(145deg, #b33b2e, #8d2e25);
+}
+.tile.wood {
+  background: linear-gradient(145deg, #8b5a2b, #6d431f);
+}
+.tile.steel {
+  background: linear-gradient(145deg, #9aa7b2, #6c7a86);
+}
+.tile.glass {
+  background: linear-gradient(145deg, #6fb3ff, #3686d3);
+}
+.tile.cement {
+  background: linear-gradient(145deg, #8f8f8f, #6d6d6d);
+}
+.tile.stone {
+  background: linear-gradient(145deg, #7c6e5a, #5e5142);
+}
+
+.glyph {
+  filter: drop-shadow(0 1px 0 rgba(0,0,0,.35));
+  pointer-events: none;
+  transform: translateY(-1px);
+}

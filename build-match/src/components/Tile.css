@@ -1,0 +1,31 @@
+.tile {
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  width: 60px;
+  height: 60px;
+}
+
+/* Анимация выделенной клетки */
+.tile.selected {
+  outline: 3px solid #fff;
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+/* Цвета */
+.tile.red {
+  background: #e74c3c;
+}
+.tile.blue {
+  background: #3498db;
+}
+.tile.green {
+  background: #2ecc71;
+}
+.tile.yellow {
+  background: #f1c40f;
+}
+.tile.purple {
+  background: #9b59b6;
+}
